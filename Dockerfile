@@ -9,6 +9,7 @@ MAINTAINER Rhett <yuanbin2014@gmail.com>
 # install gitbook versions
 RUN gitbook fetch latest
 
+
 ENV BOOKDIR /gitbook
 
 VOLUME $BOOKDIR
@@ -17,4 +18,7 @@ EXPOSE 4000
 
 WORKDIR $BOOKDIR
 
-CMD ["gitbook", "--help"]
+RUN git clone https://github.com/stewartshea/gitbook-sample && \
+    cd gitbook-sample
+
+CMD ["gitbook", "serve"]
