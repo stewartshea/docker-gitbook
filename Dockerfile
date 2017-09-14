@@ -18,7 +18,7 @@ EXPOSE 4000
 
 WORKDIR $BOOKDIR
 
-ADD scripts/run.sh
+ADD scripts/run.sh .
 RUN chmod +x run.sh
 
 CMD ["run.sh"]
