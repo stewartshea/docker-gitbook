@@ -14,11 +14,11 @@ ENV BOOKDIR /gitbook
 
 VOLUME $BOOKDIR
 
+ADD scripts/run.sh .
+RUN chmod +x run.sh
+
 EXPOSE 4000
 
 WORKDIR $BOOKDIR
 
-RUN git clone https://github.com/stewartshea/gitbook-sample && \
-    cd gitbook-sample
-
-CMD ["gitbook", "serve"]
+CMD ["run.sh"]
