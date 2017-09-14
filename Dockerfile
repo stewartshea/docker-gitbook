@@ -21,4 +21,4 @@ WORKDIR $BOOKDIR
 ADD scripts/run.sh .
 RUN chmod +x run.sh
 
-CMD ["run.sh"]
+CMD ["/bin/bash", "-c", "run.sh"]
