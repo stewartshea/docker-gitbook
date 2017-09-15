@@ -9,7 +9,6 @@ MAINTAINER Rhett <yuanbin2014@gmail.com>
 # install gitbook versions
 RUN gitbook fetch latest
 
-
 ENV BOOKDIR /gitbook
 
 VOLUME $BOOKDIR
@@ -18,7 +17,7 @@ EXPOSE 4000
 
 WORKDIR $BOOKDIR
 
-ADD scripts/run.sh .
-RUN chmod +x run.sh
+ADD scripts/run.sh /gitbook/
+RUN chmod +x /gitbook/run.sh
 
-CMD ["/bin/bash", "-c", "run.sh"]
+CMD ["/bin/bash", "-c", "/gitbook/run.sh"]
