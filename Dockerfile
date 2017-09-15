@@ -11,13 +11,12 @@ RUN gitbook fetch latest
 
 ENV BOOKDIR /gitbook
 
-VOLUME $BOOKDIR
-
-EXPOSE 4000
-
 WORKDIR $BOOKDIR
 
 ADD scripts/run.sh /gitbook/
 RUN chmod +x /gitbook/run.sh
+
+VOLUME $BOOKDIR
+EXPOSE 4000
 
 CMD ["/bin/bash", "-c", "/gitbook/run.sh"]
